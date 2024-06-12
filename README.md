@@ -21,43 +21,44 @@ Este repositório contém todas as atividades práticas supervisionadas (APSs) e
 
 **Simulação de Carro Autônomo Desviando de Obstáculos**
 
-Nesta atividade, o objetivo é treinar o uso de classes e funções em Python, desenvolvendo um programa que simula um carro autônomo desviando de obstáculos. A parte visual do programa já está pronta e utiliza a classe `Mapa` para criar uma grade 2D de 30 linhas e 7 colunas, com células representando paredes (valor 2), o carro (valor 1) e células livres (valor 0).
+Nesta atividade, o objetivo foi treinar o uso de classes e funções em Python, desenvolvendo um programa que simulasse um carro autônomo desviando de obstáculos. A parte visual do programa já estava pronta e utilizava a classe `Mapa` para criar uma grade 2D de 30 linhas e 7 colunas, com células representando paredes (valor 2), o carro (valor 1) e células livres (valor 0).
 
-O desafio é implementar a lógica de movimentação do carro na classe `Control`, que herda de `Mapa`. A lógica deve verificar se há obstáculos na linha acima do carro e decidir se ele deve mover-se para a esquerda, direita ou continuar para frente. O carro deve continuar a se mover até alcançar a primeira linha, momento em que deve parar.
+O desafio consistiu em implementar a lógica de movimentação do carro na classe `Control`, que herdava de `Mapa`. A lógica deveria verificar se havia obstáculos na linha acima do carro e decidir se ele deveria mover-se para a esquerda, para a direita ou continuar para frente. O carro deveria continuar a se mover até alcançar a primeira linha, momento em que deveria parar.
 
-O código deve ser desenvolvido no arquivo `ex1.py`, e o comportamento do carro pode ser testado executando este arquivo.
 
 ## APS 2
 
 **Criação de Nós Publisher e Subscriber no ROS2**
 
-Nesta atividade, o objetivo é criar dois nós ROS2 que publiquem e subscrevam mensagens do tipo `std_msgs/String`. Esta atividade está dividida em dois exercícios.
+Nesta atividade, o objetivo foi criar dois nós ROS2 que publicassem e subscrevessem mensagens do tipo std_msgs/String. Esta atividade foi dividida em dois exercícios.
 
 ### Exercício 1
 
-Baseando-se no código `first_node.py` do módulo 2, você deve criar um nó denominado `publisher` que publique uma mensagem no tópico `publisher` do tipo `std_msgs/String`. A mensagem deve conter o horário atual em segundos e um contador que começa em 0 e é incrementado a cada mensagem publicada. Ambos devem ser separados por um espaço. A mensagem deve ter o formato: "{tempo_atual} {contador}". O nó também deve imprimir no terminal uma mensagem de alerta como: "Ola, são {tempo_atual} e estou publicando pela {contador} vez". Utilize o comando `ros2 topic echo /publisher` para verificar se o exercício está correto.
+Baseando-se no código `first_node.py` do módulo 2, foi necessário criar um nó denominado publisher que publicasse uma mensagem no tópico `publisher` do tipo `std_msgs/String`. A mensagem deveria conter o horário atual em segundos e um contador que começava em 0 e era incrementado a cada mensagem publicada. Ambos deveriam ser separados por um espaço. A mensagem tinha o formato: "{tempo_atual} {contador}". O nó também deveria imprimir no terminal uma mensagem de alerta como: "Ola, são {tempo_atual} e estou publicando pela {contador} vez". O comando `ros2 topic echo /publisher` foi utilizado para verificar se o exercício estava correto.
 
 ### Exercício 2
 
-Baseando-se no código `second_node.py` do módulo 2, você deve criar um nó denominado `subscriber` que se inscreva no tópico `publisher` do tipo `std_msgs/String`. A cada nova mensagem recebida, a função callback deve separar o tempo do contador no conteúdo da mensagem. A função deve calcular o tempo que passou e imprimir o número da mensagem recebida e o delay entre quando a mensagem foi publicada e quando foi recebida, no formato: "Ola, estou recebendo a mensagem: {contador} que demorou {delay} segundos para ser recebida".
+Baseando-se no código second_node.py do módulo 2, foi necessário criar um nó denominado `subscriber` que se inscrevesse no tópico `publisher` do tipo `std_msgs/String`. A cada nova mensagem recebida, a função callback deveria separar o tempo do contador no conteúdo da mensagem. A função deveria calcular o tempo que passou e imprimir o número da mensagem recebida e o delay entre quando a mensagem foi publicada e quando foi recebida, no formato: "Ola, estou recebendo a mensagem: {contador} que demorou {delay} segundos para ser recebida".
+
 
 ## APS 3
 
 **Desenvolvimento de Nós ROS2 para Controle de Robôs**
 
-Nesta atividade, o objetivo é criar nós ROS2 que permitem controlar o movimento de robôs reais em diferentes cenários, utilizando odometria e sensores laser. A atividade está dividida em três exercícios.
+Nesta atividade, o objetivo foi criar nós ROS2 que permitissem controlar o movimento de robôs reais em diferentes cenários, utilizando odometria e sensores laser. A atividade foi dividida em três exercícios.
 
 ### Exercício 1 - Robô Quadrado
 
-Neste exercício, você deve criar um nó denominado `quadrado_node`, que faça o robô real se mover em uma trajetória que se aproxima de um quadrado. O nó deve ter dois estados: andar e girar. Utilize a odometria para girar em 90 graus e o método Dead Reckoning para andar os lados do quadrado. Não utilize funções de sleep; em vez disso, calcule o tempo decorrido para controlar a movimentação.
+Neste exercício, foi criado um nó denominado `quadrado_node`, que fazia o robô real se mover em uma trajetória que se aproximava de um quadrado. O nó tinha dois estados: andar e girar. Utilizou-se a odometria para girar em 90 graus e o método Dead Reckoning para andar os lados do quadrado. Não foram utilizadas funções de sleep; em vez disso, o tempo decorrido foi calculado para controlar a movimentação.
 
 ### Exercício 2 - Robô Quase Indeciso
 
-Neste exercício, você deve criar um nó denominado `indeciso_node` que faça com que o robô real se afaste da parede quando um obstáculo estiver a menos de 0.95m e se aproxime quando estiver a mais de 1.05m, ficando parado em outras situações. O nó deve ter três estados: forward, backward e stop.
+Neste exercício, foi criado um nó denominado `indeciso_node` que fazia com que o robô real se afastasse da parede quando um obstáculo estivesse a menos de 0.95m e se aproximasse quando estivesse a mais de 1.05m, ficando parado em outras situações. O nó tinha três estados: forward, backward e stop.
 
 ### Exercício 3 - Robô Limpador
 
-Neste exercício, você deve criar um nó denominado `limpador_node` que faça o robô real mover-se em frente até encontrar um obstáculo a menos de 0.5m. O robô deve então girar até que o obstáculo mais próximo esteja à direita inferior (aproximadamente 225 graus), e repetir o processo.
+Neste exercício, foi criado um nó denominado `limpador_node` que fazia o robô real mover-se em frente até encontrar um obstáculo a menos de 0.5m. O robô então girava até que o obstáculo mais próximo estivesse à direita inferior (aproximadamente 225 graus), e repetia o processo.
+
 
 ## APS 4
 
